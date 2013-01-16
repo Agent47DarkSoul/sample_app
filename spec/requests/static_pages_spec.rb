@@ -9,7 +9,7 @@ describe "StaticPages" do
 
     it "should have the correct title" do
     	visit '/static_pages/home'
-    	# page.should have_selector('title', :text => ' | Home')
+    	page.should have_selector('title', :text => ' | Home')
     end
   end
 
@@ -18,6 +18,11 @@ describe "StaticPages" do
   		visit '/static_pages/help'
   		page.should have_content('Help')
   	end
+
+  	it "should have the correct title" do
+    	visit '/static_pages/help'
+    	page.should have_selector('title', :text => ' | Help')
+    end
   end
 
   describe "About page" do
@@ -25,5 +30,10 @@ describe "StaticPages" do
   		visit '/static_pages/about'
   		page.should have_content('About')
   	end
+
+  	it "should have the correct title" do
+    	visit '/static_pages/about'
+    	page.should have_selector('title', :text => ' | About')
+    end
   end
 end
