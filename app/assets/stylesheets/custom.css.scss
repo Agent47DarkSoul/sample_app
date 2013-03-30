@@ -75,3 +75,10 @@ aside {
 	float: left;
 	margin-right: 10px;
 }
+
+/* signup */
+input[type] {
+	width: 100%;
+	height: auto;
+	@include box_sizing;
+}
