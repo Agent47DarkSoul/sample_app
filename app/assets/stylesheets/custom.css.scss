@@ -95,3 +95,7 @@ input[type] {
 	@extend .control-group;
 	@extend .error;
 }
+
+#btnSignup, #btnSignin {
+	margin-top: 10px;
+}
