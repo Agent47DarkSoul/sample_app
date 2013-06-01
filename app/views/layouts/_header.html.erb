@@ -15,8 +15,9 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-							<li><%= link_to("Profile", user_path(current_user), tabindex: -1)%></li>
-							<li><%= link_to("Sign out", signout_path, method: "delete", tabindex: -1) %></li>
+							<li><%= link_to('Profile', user_path(current_user), tabindex: -1)%></li>
+							<li><%= link_to('Settings', edit_user_path(current_user), tabindex: -1)%></li>
+							<li><%= link_to('Sign out', signout_path, method: "delete", tabindex: -1) %></li>
 						</ul>
 					</li>
 					<% else %>
