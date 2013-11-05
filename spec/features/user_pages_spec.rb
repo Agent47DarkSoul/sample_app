@@ -8,7 +8,7 @@ describe "UserPages" do
   	before { visit signup_path }
 
   	it { should have_selector('h1', text: "Sign up") }
-  	it { should have_selector('title', text: full_title('Signup')) }
+  	it { should have_title(full_title('Signup')) }
   end
 
   describe "profile page" do
@@ -17,7 +17,7 @@ describe "UserPages" do
     before { visit user_path(user) }
 
     it { should have_selector('h1', text: user.name) }
-    it { should have_selector('title', text: user.name) }
+    it { should have_title(user.name) }
   end
 
   describe "signup process" do
@@ -33,7 +33,7 @@ describe "UserPages" do
       describe "after submission" do
         before { click_button submit }
 
-        it { should have_selector("title", text: "Signup") }
+        it { should have_title("Signup") }
         it { should have_content("error") }
         it { should have_content("Password") }
         it { should_not have_selector("li" , text: "Password digest can't be blank") }
@@ -57,7 +57,7 @@ describe "UserPages" do
 
         let(:user) { User.where(:email => "danish_satkut@hotmail.com").first }
 
-        it { should have_selector('title', text: user.name) }
+        it { should have_title(user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
         it { should have_link("Sign out", href: signout_path) }
       end
@@ -69,17 +69,17 @@ describe "UserPages" do
     let(:submit) { "Save changes" }
     let(:update_h1_text) { 'Update your profile' }
 
-    after(:each) { sign_out }
+    after(:each) { sign_out_from_ui }
 
     context "when current user is same as profile user" do
       before(:each) do
-        sign_in user
+        sign_in_from_ui user
         visit edit_user_path(user)
       end
 
       describe "page" do
         it { should have_selector('h1', :text => update_h1_text) }
-        it { should have_selector('title', :text => 'Edit user') }
+        it { should have_title('Edit user') }
         it { should have_link('change', :href => 'http://en.gravatar.com/emails') }
       end
 
@@ -109,7 +109,7 @@ describe "UserPages" do
           click_button submit
         end
 
-        it { should have_selector('title', :text => new_name) }
+        it { should have_title(new_name) }
         it { should have_selector('div.alert.alert-success') }
         it { should have_link('Sign out', :href => signout_path) }
 
@@ -123,12 +123,12 @@ describe "UserPages" do
     context "when current user is different than profile user" do
       it "shows user's profile" do
         another_user = create(:user)
-        sign_in another_user
+        sign_in_from_ui another_user
         visit edit_user_path(user)
 
         # TODO: Use common test
         expect(page).to have_selector('h1', :text => user.name)
-        expect(page).to have_selector('title', :text => user.name)
+        expect(page).to have_title(user.name)
       end
     end
   end
