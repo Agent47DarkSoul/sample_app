@@ -51,4 +51,22 @@ describe "AuthenticationPages" do
 			end
 		end
 	end
+
+  describe "authorization" do
+    context "for non signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      context "in the Users controller" do
+        context "visiting the edit page" do
+          before(:each) { visit edit_user_path(user) }
+          it { should have_selector('title', :text => 'Sign in') }
+        end
+
+        context "submitting to the update action" do
+          before(:each) { put user_path(user) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+    end
+	end
 end

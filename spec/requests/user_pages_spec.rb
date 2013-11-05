@@ -4,14 +4,6 @@ describe "UserPages" do
 
 	subject { page }
 
-  describe "GET /signup" do
-  	before { get signup_path }
-
-    it "should visit signup page" do
-    	response.status.should be(200)
-  	end
-  end
-
   describe "Signup page" do
   	before { visit signup_path }
 
@@ -28,7 +20,7 @@ describe "UserPages" do
     it { should have_selector('title', text: user.name) }
   end
 
-  describe "signup" do
+  describe "signup process" do
     before { visit signup_path }
 
     let(:submit) { "Create my account" }
@@ -77,7 +69,14 @@ describe "UserPages" do
     let(:submit) { "Save changes" }
     let(:update_h1_text) { 'Update your profile' }
 
-    before { visit edit_user_path(user) }
+    before(:each) do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    after(:each) do
+      sign_out
+    end
 
     describe "page" do
       it { should have_selector('h1', :text => update_h1_text) }
