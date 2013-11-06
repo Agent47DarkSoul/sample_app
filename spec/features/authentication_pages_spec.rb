@@ -11,14 +11,14 @@ describe "AuthenticationPages" do
 		it { should have_selector('h1', text: 'Sign in') }
 		it { should have_title('Sign in') }
 
-		describe "with invalid information" do
+		context "with invalid information" do
 			before { click_button submit }
 
 			it { should have_title('Sign in') }
 			it { should have_selector('div.alert.alert-error', text: 'invalid') }
 		end
 
-		describe "with valid information" do
+		context "with valid information" do
 			let(:user) { FactoryGirl.create(:user) }
 
 			before do
@@ -35,7 +35,7 @@ describe "AuthenticationPages" do
 
 			it { should have_link('Settings', href: edit_user_path(user)) }
 
-			describe "followed by signout" do
+			context "followed by signout" do
 				before { click_link "Sign out" }
 
 				it { should have_link('Sign in', href: signin_path) }

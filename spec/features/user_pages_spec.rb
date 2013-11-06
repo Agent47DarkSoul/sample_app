@@ -25,12 +25,12 @@ describe "UserPages" do
 
     let(:submit) { "Create my account" }
 
-    describe "with invalid information" do
+    context "with invalid information" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
 
-      describe "after submission" do
+      context "after submission" do
         before { click_button submit }
 
         it { should have_title("Signup") }
@@ -40,7 +40,7 @@ describe "UserPages" do
       end
     end
 
-    describe "with valid information" do
+    context "with valid information" do
       before do
         fill_in "Name", with: "Danish Satkut"
         fill_in "Email", with: "danish_satkut@hotmail.com"
@@ -52,7 +52,7 @@ describe "UserPages" do
         expect { click_button submit }.to change(User, :count)
       end
 
-      describe "after saving the user" do
+      context "after saving the user" do
         before { click_button submit }
 
         let(:user) { User.where(:email => "danish_satkut@hotmail.com").first }
@@ -83,12 +83,12 @@ describe "UserPages" do
         it { should have_link('change', :href => 'http://en.gravatar.com/emails') }
       end
 
-      describe "with invalid information" do
+      context "with invalid information" do
         it "should not update the user" do
           expect { click_button submit }.not_to change(user, :updated_at)
         end
 
-        describe "after submission" do
+        context "after submission" do
           before { click_button submit }
 
           it { should have_selector('h1', :text => update_h1_text) }
@@ -96,7 +96,7 @@ describe "UserPages" do
         end
       end
 
-      describe "with valid information" do
+      context "with valid information" do
         let(:new_name) { "New Name" }
         let(:new_email) { "new@email.com" }
 

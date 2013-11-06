@@ -16,10 +16,6 @@ describe "StaticPages" do
 
     it_should_behave_like "all static pages"
     it { should_not have_title('Home') }
-
-    # it "" do
-    #   click_link sign
-    # end
   end
 
   describe "Help page" do
