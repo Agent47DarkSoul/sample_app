@@ -4,13 +4,6 @@ describe "UserPages" do
 
 	subject { page }
 
-  describe "Signup page" do
-  	before { visit signup_path }
-
-  	it { should have_selector('h1', text: "Sign up") }
-  	it { should have_title(full_title('Signup')) }
-  end
-
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -18,50 +11,6 @@ describe "UserPages" do
 
     it { should have_selector('h1', text: user.name) }
     it { should have_title(user.name) }
-  end
-
-  describe "signup process" do
-    before { visit signup_path }
-
-    let(:submit) { "Create my account" }
-
-    context "with invalid information" do
-      it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
-      end
-
-      context "after submission" do
-        before { click_button submit }
-
-        it { should have_title("Signup") }
-        it { should have_content("error") }
-        it { should have_content("Password") }
-        it { should_not have_selector("li" , text: "Password digest can't be blank") }
-      end
-    end
-
-    context "with valid information" do
-      before do
-        fill_in "Name", with: "Danish Satkut"
-        fill_in "Email", with: "danish_satkut@hotmail.com"
-        fill_in "Password", with: "foobarawesome"
-        fill_in "Confirmation", with: "foobarawesome"
-      end
-
-      it "should create a user" do
-        expect { click_button submit }.to change(User, :count)
-      end
-
-      context "after saving the user" do
-        before { click_button submit }
-
-        let(:user) { User.where(:email => "danish_satkut@hotmail.com").first }
-
-        it { should have_title(user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-        it { should have_link("Sign out", href: signout_path) }
-      end
-    end
   end
 
   describe "profile update" do
