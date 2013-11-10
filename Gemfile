@@ -7,10 +7,8 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.8'
   gem 'rspec-rails', '~> 2.14.0'
   gem 'guard-rspec', '~> 4.0.2'
-  gem 'annotate', '~> 2.5.0'
   gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.2'
-  gem 'fuubar', '~> 1.2.1'
   gem 'heroku'
 end
 
@@ -27,6 +25,12 @@ group :test do
   gem 'zeus', '~> 0.13.3'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'ffaker', '~> 1.20.0'
+  gem 'rspec-example_steps', '~> 0.2.5'
+  gem 'fuubar', '~> 1.2.1'
+end
+
+group :development do
+  gem 'annotate', '~> 2.5.0'
 end
 
 group :production do
