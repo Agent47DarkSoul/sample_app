@@ -4,15 +4,6 @@ describe "UserPages" do
 
 	subject { page }
 
-  describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-
-    before { visit user_path(user) }
-
-    it { should have_selector('h1', text: user.name) }
-    it { should have_title(user.name) }
-  end
-
   describe "profile update" do
     let(:user) { FactoryGirl.create(:user) }
     let(:submit) { "Save changes" }
