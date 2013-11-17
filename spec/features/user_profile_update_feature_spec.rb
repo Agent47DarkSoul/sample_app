@@ -31,7 +31,11 @@ feature "User profile update" do
       click_button 'Save changes'
     end
 
-    Then "My profile details should be updated" do
+    Then "I should see a success message" do
+      expect(page).to have_selector('.alert-success', :text => "Profile has been updated")
+    end
+
+    And "It updates my profile details" do
       sign_out_from_ui
 
       sign_in_from_ui("new_email@example.com", "new_password")
