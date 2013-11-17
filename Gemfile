@@ -7,7 +7,6 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.8'
   gem 'rspec-rails', '~> 2.14.0'
   gem 'guard-rspec', '~> 4.0.2'
-  gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'heroku'
 end
@@ -31,6 +30,7 @@ end
 
 group :development do
   gem 'annotate', '~> 2.5.0'
+  gem 'better_errors', '~> 1.0.1'
 end
 
 group :production do
