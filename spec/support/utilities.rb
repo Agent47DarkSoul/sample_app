@@ -7,8 +7,8 @@ def sign_in_from_ui(email, password)
   click_button "Sign in"
 end
 
-def sign_in(user)
-  cookies["remember_token"] = user.remember_token
+def sign_in(remember_token)
+  cookies["remember_token"] = remember_token
 end
 
 def sign_out_from_ui
