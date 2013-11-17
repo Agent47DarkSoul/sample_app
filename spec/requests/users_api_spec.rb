@@ -101,5 +101,24 @@ describe "Users API" do
         end
       end
     end
+
+    context "when current user is different than profile user" do
+      it "redirects to current user's profile edit page" do
+        another_user = create(:user)
+        sign_in another_user.remember_token
+
+        put user_path(user), :user => {
+          :name => "New Name", :email => "new_email@example.com",
+          :password => "new_password",
+          :password_confirmation => "new_password"
+        }
+
+        expect(response).to redirect_to(edit_user_path(another_user))
+
+        sign_in user.remember_token
+        get user_path(user)
+        expect(response).not_to include('New Name')
+      end
+    end
   end
 end
