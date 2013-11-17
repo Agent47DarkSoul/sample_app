@@ -13,7 +13,7 @@ describe "UserPages" do
 
     context "when current user is same as profile user" do
       before(:each) do
-        sign_in_from_ui user
+        sign_in_from_ui user.email, user.password
         visit edit_user_path(user)
       end
 
@@ -63,7 +63,7 @@ describe "UserPages" do
     context "when current user is different than profile user" do
       it "shows user's profile" do
         another_user = create(:user)
-        sign_in_from_ui another_user
+        sign_in_from_ui another_user.email, another_user.password
         visit edit_user_path(user)
 
         # TODO: Use common test
