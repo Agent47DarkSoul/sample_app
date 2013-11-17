@@ -11,7 +11,7 @@ feature "User signup" do
     end
   end
 
-  Steps "is successful" do
+  Steps "Successful" do
     include_steps "I want to sign up"
 
     When "I sign up with valid username and password" do
@@ -28,7 +28,7 @@ feature "User signup" do
     end
   end
 
-  Steps "fails when email is already used by another account" do
+  Steps "Duplicate email" do
     include_steps "I want to sign up"
 
     But "I enter an email address that has been already registered" do
@@ -47,7 +47,7 @@ feature "User signup" do
     end
   end
 
-  Steps "fails when password is less than 6 characters" do
+  Steps "Short password" do
     include_steps "I want to sign up"
 
     But "I enter password less than 6 characters" do
@@ -65,7 +65,7 @@ feature "User signup" do
     end
   end
 
-  Steps "fails when password does not match confirmation password" do
+  Steps "Mismatch confirmation password" do
     include_steps "I want to sign up"
 
     But "I enter different confirmation password" do
