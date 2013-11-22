@@ -5,11 +5,7 @@ feature "User profile update" do
   let(:password) { "sample_password" }
 
   background do
-    create(:user,
-      :email => email,
-      :password => password,
-      :password_confirmation => password
-    )
+    create(:user, :with_password, :email => email, :password => password)
   end
 
   shared_steps "I am signed in" do

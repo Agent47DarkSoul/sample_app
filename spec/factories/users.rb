@@ -4,5 +4,9 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password "foobarawesome"
     password_confirmation "foobarawesome"
+
+    trait :with_password do
+      password_confirmation { password }
+    end
   end
 end
