@@ -8,6 +8,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'guard-rspec', '~> 4.0.2'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'factory_girl_rails', '~> 4.2'
   gem 'heroku'
 end
 
@@ -20,7 +21,6 @@ end
 group :test do
   gem 'capybara', '~> 2.1.0'
   gem 'libnotify', '0.5.9'
-  gem 'factory_girl_rails', '~> 4.2'
   gem 'zeus', '~> 0.13.3'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'ffaker', '~> 1.20.0'

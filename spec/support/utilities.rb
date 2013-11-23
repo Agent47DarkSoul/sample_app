@@ -18,3 +18,7 @@ end
 def sign_out
   cookies.delete("remember_token")
 end
+
+def profile_page_for(user)
+  expect(page).to have_selector('h1', :text => user.name)
+end

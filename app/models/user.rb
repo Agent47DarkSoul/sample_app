@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
   before_save :create_remember_token
 
+  has_many :statuses, :class_name => "Micropost"
+
 	private
 	
 		def create_remember_token

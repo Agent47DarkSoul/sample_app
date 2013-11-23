@@ -3,8 +3,14 @@ require 'spec_helper'
 describe User do
   let(:user) { build(:user) }
 
-  it "responds to authenticate" do
-    expect(user).to respond_to(:authenticate)
+  describe "instance" do
+    it "responds to authenticate" do
+      expect(user).to respond_to(:authenticate)
+    end
+
+    it "responds to statuses" do
+      expect(user).to respond_to(:statuses)
+    end
   end
 
   context "with all attributes present" do
