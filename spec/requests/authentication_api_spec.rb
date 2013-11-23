@@ -16,7 +16,7 @@ describe "Authentication API" do
     context "when user is available in database" do
       let(:user) { create(:user) }
 
-      context "when user name and password is correct" do
+      context "when email and password is correct" do
         it "signs in user and redirects to user's profile page" do
           post sessions_path, :session => {
             :email => user.email, :password => user.password
@@ -31,7 +31,7 @@ describe "Authentication API" do
         end
       end
 
-      context "when user name or password is incorrect" do
+      context "when email or password is incorrect" do
         include_examples "sign in failure"
       end
     end
