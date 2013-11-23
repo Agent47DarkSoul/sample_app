@@ -17,3 +17,4 @@ bundler_stubs/
 Guardfile
 TODO
 *.todo
+.user-stories/*.story
