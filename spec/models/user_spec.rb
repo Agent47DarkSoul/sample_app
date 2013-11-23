@@ -108,10 +108,10 @@ describe User do
     end
   end
 
-  context "with email address with mixed case" do
+  context "with email address containing mixed case characters" do
     let(:mixed_case_email) { "uSEr@ExaMPLe.COm" }
 
-    it "saves as all lower case code" do
+    it "is saved as lower case characters" do
       user.email = mixed_case_email
       user.save
       user.reload
@@ -121,7 +121,7 @@ describe User do
   end
 
   describe "remember token" do
-    it "is not blank after save" do
+    it "is generated after save" do
       user.save
       expect(user.remember_token).to be_present
     end
