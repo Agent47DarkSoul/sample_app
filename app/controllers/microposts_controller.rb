@@ -1,4 +1,6 @@
 class MicropostsController < ApplicationController
+  before_filter :authenticate_user!
+
   def new
     @micropost = Micropost.new
   end
