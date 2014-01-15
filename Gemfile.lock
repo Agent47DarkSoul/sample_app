@@ -115,6 +115,7 @@ GEM
     mini_portile (0.5.2)
     multi_json (1.8.2)
     netrc (0.7.7)
+    newrelic_rpm (3.7.1.182)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.12.2)
@@ -219,6 +220,7 @@ DEPENDENCIES
   heroku
   jquery-rails (~> 2.2.0)
   libnotify (= 0.5.9)
+  newrelic_rpm (~> 3.7.1)
   pg (= 0.12.2)
   rails (= 3.2.13)
   rspec-example_steps (~> 0.2.5)
