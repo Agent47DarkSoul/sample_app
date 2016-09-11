@@ -41,3 +41,6 @@ end
 gem 'jquery-rails', '~> 2.2.0'
 gem 'bootstrap-sass', '~> 2.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'omniauth-flowdock'
+
+gem 'dotenv-rails', :groups => [:development, :test]
