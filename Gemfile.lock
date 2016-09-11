@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Agent47DarkSoul/omniauth-oauth2.git
-  revision: ff76e690aa3b521cadc7707a95ad064a0689c63d
+  revision: 8a41f546b14899c81df5ba636c5ce4c58b3d96de
   branch: debugging-csrf-issue
   specs:
     omniauth-oauth2 (1.4.0)
