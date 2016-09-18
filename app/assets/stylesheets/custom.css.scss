@@ -98,4 +98,12 @@ input[type] {
 
 #btnSignup, #btnSignin {
 	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#btnDeleteAccount {
+	width: 100%;
+	height: auto;
+	@include box_sizing;
+	clear: both;
 }
