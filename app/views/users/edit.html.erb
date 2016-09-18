@@ -19,9 +19,13 @@
       <%= f.password_field :password_confirmation %>
 
       <%= f.submit "Save changes", :class => "btn btn-large btn-primary", :id => "btnSignup" %>
+
+      <%= link_to "Delete Account", user_path(@user), :class => "btn btn-large btn-danger", :id => "btnDeleteAccount", :method => :delete %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <%= link_to 'change', 'http://en.gravatar.com/emails', :target => :blank %>
+    <div>
+      <%= gravatar_for @user %>
+      <%= link_to 'change', 'http://en.gravatar.com/emails', :target => :blank %>
+    </div>
   </div>
 </div>

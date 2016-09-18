@@ -45,4 +45,15 @@ class UsersController < ApplicationController
 			render :edit
 		end
 	end
+
+	def destroy
+		@user = User.find(params[:id])
+
+		if @user.destroy
+			sign_out
+			redirect_to root_path
+		else
+			render :edit
+		end
+	end
 end
